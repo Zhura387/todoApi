@@ -17,8 +17,8 @@ if (isMan){
 }
 post()
 }
-
-
+// lexa123@mail.ru
+// Lexa_redev123
 // Egor_redev123
 const post =async()=>{
 const res = await fetch("https://first-node-js-app-r.herokuapp.com/api/users/register",
@@ -32,7 +32,7 @@ const res = await fetch("https://first-node-js-app-r.herokuapp.com/api/users/reg
         username: username,
         email:email,
         password:password,
-        isMan:isMan,
+        isMan:true,
         age:parseInt(age),
     }),
 }

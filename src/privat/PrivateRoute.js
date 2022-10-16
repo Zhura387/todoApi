@@ -1,10 +1,11 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet,Navigate } from "react-router-dom";
+
 
 
 const PrivateRoute = ({ls}) => {
 
 
-  return(ls?<Outlet/>:<Navigate to={"/log"}/>)
+  return(ls()==='true'?<Outlet/>:<Navigate to='Log'/>)
 
 }
 export default PrivateRoute;

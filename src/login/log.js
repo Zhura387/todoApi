@@ -1,6 +1,7 @@
 import React from 'react';
+import { useNavigate } from "react-router-dom";
 const Log=()=>{
-
+    let navigate = useNavigate();
 
 
 const [password, setPassword] = React.useState('');
@@ -28,6 +29,7 @@ const res = await fetch("https://first-node-js-app-r.herokuapp.com/api/auth/logi
 )
 const data = await res.json()
 localStorage.setItem('token',data.token)
+navigate(`/`)
 console.log(data)
 }
 return(

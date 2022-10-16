@@ -1,10 +1,9 @@
 import React from 'react';
-import EditTask from '../editTask/editTask';
-import Checked from '../checked/Checked';
+import GetTodo from '../getTodo/GetTodo';
 
 const Todo = () => {
     const accessToken = localStorage.getItem('token')
-    const [todos, setTodos] = React.useState([])
+    // const [todos, setTodos] = React.useState([])
     const [text, setText] = React.useState('');
 
 
@@ -30,23 +29,6 @@ const Todo = () => {
         console.log(data)
     }
 
-    React.useEffect(() => {
-        fetch('https://first-node-js-app-r.herokuapp.com/api/todos',
-            {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`,
-                },
-            }
-        )
-            .then((res) => {
-                return res.json()
-            })
-            .then((json) => {
-                setTodos(json)
-            })
-    }, [])
-    console.log(todos)
 
     const handleDelete = async (item) => {
         const res = await fetch(`https://first-node-js-app-r.herokuapp.com/api/todos/${item.ID}`,
@@ -71,23 +53,10 @@ const Todo = () => {
                 </div>
                 <button onClick={(e) => hendleSubmit(e)}>отправить</button>
             </form>
-
-            <div className='todos'>
-                {todos.map((item) => (
-                    <div key={item.id} className='task'>
-                        {/* <p>{item.title}</p> */}
-                        <EditTask
-                            item={item}
-                            accessToken={accessToken}
-                        />
-                        <button onClick={() => handleDelete(item)}>delete</button>
-                        <Checked
-                            item={item}
-                            accessToken={accessToken}
-                        />
-                    </div>
-                ))}</div>
-
+            <GetTodo
+                accessToken={accessToken}
+                handleDelete={handleDelete}
+            />
         </div>
     )
 }
