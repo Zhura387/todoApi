@@ -2,6 +2,8 @@ import React from 'react';
 import GetTodo from '../getTodo/GetTodo';
 
 const Todo = () => {
+
+
     const accessToken = localStorage.getItem('token')
     // const [todos, setTodos] = React.useState([])
     const [text, setText] = React.useState('');
@@ -27,7 +29,9 @@ const Todo = () => {
         )
         const data = await res.json()
         console.log(data)
+
     }
+
 
 
     const handleDelete = async (item) => {
@@ -43,7 +47,8 @@ const Todo = () => {
         const data = await res.json()
         console.log(data)
     }
-
+    // Export default React.memo(Task)
+    // const MyScotchyComponent = React.memo(function MyComponent(props) {
     return (
         <div>
             <form onSubmit={() => hendleSubmit()}>
@@ -53,11 +58,13 @@ const Todo = () => {
                 </div>
                 <button onClick={(e) => hendleSubmit(e)}>отправить</button>
             </form>
+
             <GetTodo
                 accessToken={accessToken}
                 handleDelete={handleDelete}
             />
         </div>
+
     )
 }
 export default Todo;
