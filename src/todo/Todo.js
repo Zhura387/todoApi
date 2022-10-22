@@ -1,5 +1,6 @@
 import React from 'react';
 import GetTodo from '../getTodo/GetTodo';
+import { Link } from 'react-router-dom'
 
 const Todo = () => {
 
@@ -51,12 +52,15 @@ const Todo = () => {
     // const MyScotchyComponent = React.memo(function MyComponent(props) {
     return (
         <div>
+
+<span> <Link to="Menu"> Menu</Link></span> 
+
             <form onSubmit={() => hendleSubmit()}>
-                <div>
+                <div className='submitForm'>
                     <lable htmlFor='todo'>Введите текст</lable>
                     <input name='todo' type='text' value={text} onChange={(e) => setText(e.target.value)}></input>
-                </div>
                 <button onClick={(e) => hendleSubmit(e)}>отправить</button>
+                </div>
             </form>
 
             <GetTodo
