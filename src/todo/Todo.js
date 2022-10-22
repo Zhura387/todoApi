@@ -1,12 +1,12 @@
 import React from 'react';
 import GetTodo from '../getTodo/GetTodo';
 import { Link } from 'react-router-dom'
+import './todo.css';
 
 const Todo = () => {
 
 
     const accessToken = localStorage.getItem('token')
-    // const [todos, setTodos] = React.useState([])
     const [text, setText] = React.useState('');
 
 
@@ -52,23 +52,21 @@ const Todo = () => {
     // const MyScotchyComponent = React.memo(function MyComponent(props) {
     return (
         <div>
+            <div className='link'> <Link to="Menu" className='linkMenu'> Menu</Link></div>
+            <div className='content'>
+                <form onSubmit={() => hendleSubmit()}>
+                    <div className='submitForm'>
+                        <input name='todo' placeholder='Введите текст' type='text' value={text} onChange={(e) => setText(e.target.value)}></input>
+                        <button onClick={(e) => hendleSubmit(e)}>добавить</button>
+                    </div>
+                </form>
 
-<span> <Link to="Menu"> Menu</Link></span> 
-
-            <form onSubmit={() => hendleSubmit()}>
-                <div className='submitForm'>
-                    <lable htmlFor='todo'>Введите текст</lable>
-                    <input name='todo' type='text' value={text} onChange={(e) => setText(e.target.value)}></input>
-                <button onClick={(e) => hendleSubmit(e)}>отправить</button>
-                </div>
-            </form>
-
-            <GetTodo
-                accessToken={accessToken}
-                handleDelete={handleDelete}
-            />
+                <GetTodo
+                    accessToken={accessToken}
+                    handleDelete={handleDelete}
+                />
+            </div>
         </div>
-
     )
 }
 export default Todo;

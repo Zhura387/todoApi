@@ -1,0 +1,23 @@
+.link {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.linkMenu {
+    color: #C9CC29;
+    margin: 10px 15px;
+}
+
+.content {
+    border: 3px solid #F93CC4;
+    width: 75%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.submitForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}

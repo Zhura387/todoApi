@@ -1,6 +1,8 @@
 import React from 'react';
 import EditTask from '../editTask/editTask';
 import Checked from '../checked/Checked';
+import './getTodo.css';
+
 const GetTodo = ({ accessToken, handleDelete }) => {
     const [todos, setTodos] = React.useState([])
 
@@ -25,19 +27,22 @@ const GetTodo = ({ accessToken, handleDelete }) => {
     console.log(todos)
     // })
     return (
-        <div className='todos'>
+        <div>
             {todos.map((item) => (
-                <div key={item.ID} className='task'>
-                    {/* <p>{item.title}</p> */}
-                    <EditTask
-                        item={item}
-                        accessToken={accessToken}
-                    />
-                    <button onClick={() => handleDelete(item)}>delete</button>
-                    <Checked
-                        item={item}
-                        accessToken={accessToken}
-                    />
+                <div key={item.ID} className="task">
+                    <div className="taskText">
+                        <EditTask
+                            item={item}
+                            accessToken={accessToken}
+                        />
+                    </div>
+                    <div className="taskDelete">
+                        <button className="delete" onClick={() => handleDelete(item)}>delete</button>
+                        <Checked
+                            item={item}
+                            accessToken={accessToken}
+                        />
+                    </div>
                 </div>
             ))}</div>
     )

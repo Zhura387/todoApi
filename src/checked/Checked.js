@@ -19,8 +19,6 @@ const Checked = ({ item, accessToken }) => {
         console.log(r)
     }
 
-
-
     return (
         <div>
             <input onClick={() => check(item)} type='checkbox'></input>

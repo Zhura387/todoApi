@@ -1,0 +1,12 @@
+.task{
+    display: flex;
+    margin: 10px 0px;
+    
+}
+.taskText{
+margin: 0px 20px 0px 5px;
+    
+}
+.taskDelete{
+display: flex;
+}

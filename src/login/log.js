@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
+import './log.css'
 const Log = () => {
     let navigate = useNavigate();
 
@@ -40,22 +41,21 @@ const Log = () => {
         } catch (error) {
             alert(error)
         }
-
     }
     return (
-        <div>
-            <form onSubmit={() => hendleSubmit()}>
-
-                <div>
-                    <lable htmlFor='password'>Введите пароль</lable>
-                    <input name='password' type='password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
-                </div>
-                <div>
-                    <lable htmlFor='email'>Введите свою почту</lable>
-                    <input name='email' type='email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
-                </div>
-                <button onClick={(e) => hendleSubmit(e)}>отправить</button>
-            </form>
+        <div className='wrapperLog'>
+            <div className='contentLog'>
+                <p>Вход</p>
+                <form onSubmit={() => hendleSubmit()} className='form'>
+                    <div>
+                        <input name='password' placeholder='Введите пароль' type='password' value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                    </div>
+                    <div>
+                        <input name='email' placeholder='Введите свою почту' type='email' value={email} onChange={(e) => setEmail(e.target.value)}></input>
+                    </div>
+                    <button onClick={(e) => hendleSubmit(e)}>Войти</button>
+                </form>
+            </div>
         </div>
     )
 }

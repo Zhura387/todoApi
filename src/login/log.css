@@ -1,0 +1,27 @@
+.wrapperLog {
+    display: flex;
+    justify-content: center;
+}
+
+.contentLog {
+    width: 30%;
+    border: 2px solid #C9CC29;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    color: beige;
+    align-items: center;
+}
+
+.contentLog p {
+    font-size: 14px;
+}
+
+.form {
+    margin: 10px 10px;
+}
+
+.form button {
+    float: right;
+    margin: 10px 0px;
+}

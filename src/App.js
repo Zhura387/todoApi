@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.css';
-import { Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import Todo from './todo/Todo';
 import PrivateRoute from './HOC/PrivateRoute';
 import Menu from './menu/menu';
 
-
 function App() {
-
-
   return (
     <div>
       <Routes>
@@ -20,7 +17,7 @@ function App() {
             </PrivateRoute>
           }
         />
- <Route path='Menu/*' element={<Menu/>}></Route>
+        <Route path='Menu/*' element={<Menu />}></Route>
       </Routes>
     </div>
   );

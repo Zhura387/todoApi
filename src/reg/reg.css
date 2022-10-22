@@ -1,0 +1,33 @@
+.wrapperReg {
+    display: flex;
+    justify-content: center;
+}
+
+.contentReg {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #C9CC29;
+    width: 30%;
+    margin-top: 20px;
+    align-items: center;
+    color: beige;
+    font-size: 10px;
+}
+
+.contentReg p {
+    font-size: 14px;
+}
+
+.formReg {
+    margin: 10px 10px;
+}
+
+.age {
+    display: flex;
+    flex-direction: column;
+}
+
+.formReg button {
+    float: right;
+    margin: 10px 0px;
+}

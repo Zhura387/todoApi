@@ -1,4 +1,5 @@
 import React from 'react';
+import './edit.css';
 
 const EditTask = ({ item, accessToken }) => {
     const [isEdit, setIsEdit] = React.useState(false)
@@ -35,8 +36,8 @@ const EditTask = ({ item, accessToken }) => {
 
     return (
         <div className='task-place'>
-            {isEdit ? (<input className='input-edit' onChange={(e) => setText(e.target.value)} value={text} />) : (<p className='task'>{item.title}</p>)}
-            <button onClick={() => toggle(item)}>{isEdit ? 'save' : 'ed'}</button>
+            {isEdit ? (<input className='input-edit' onChange={(e) => setText(e.target.value)} value={text} />) : (<p className='title'>{item.title}</p>)}
+            <button onClick={() => toggle(item)}>{isEdit ? 'сохранить' : 'изменить'}</button>
         </div>
     )
 }

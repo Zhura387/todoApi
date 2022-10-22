@@ -1,0 +1,19 @@
+.menuHeader {
+    height: 30px;
+    border: 1px solid #C9CC29;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+a{
+    color: #C9CC29;
+    font-size: 14px;
+}
+.linkLog{
+    margin-left:10px ;
+    color: #C9CC29;
+    font-size: 14px;
+}
+.linkR{
+    display: flex;
+}
