@@ -1,13 +1,26 @@
 import React from 'react';
-import EditTask from '../editTask/editTask';
-import Checked from '../checked/Checked';
-import './getTodo.css';
+import EditTask from '../EditTask/EditTask';
+import Checked from '../Checked/Checked';
+import './GetTodo.css';
 
-const GetTodo = ({ accessToken, handleDelete }) => {
+const GetTodo = () => {
     const [todos, setTodos] = React.useState([])
+    const accessToken = localStorage.getItem('token')
 
+    const handleDelete = async (item) => {
+        const res = await fetch(`https://first-node-js-app-r.herokuapp.com/api/todos/${item.ID}`,
+            {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${accessToken}`,
+                },
+            }
+        )
+        const data = await res.json()
+        console.log(data)
+    }
 
-    // const OtherScotchy = React.memo(props => {
     React.useEffect(() => {
         fetch('https://first-node-js-app-r.herokuapp.com/api/todos',
             {
@@ -25,7 +38,7 @@ const GetTodo = ({ accessToken, handleDelete }) => {
             })
     }, [])
     console.log(todos)
-    // })
+ 
     return (
         <div>
             {todos.map((item) => (
@@ -33,14 +46,14 @@ const GetTodo = ({ accessToken, handleDelete }) => {
                     <div className="taskText">
                         <EditTask
                             item={item}
-                            accessToken={accessToken}
+                            
                         />
                     </div>
                     <div className="taskDelete">
                         <button className="delete" onClick={() => handleDelete(item)}>delete</button>
                         <Checked
                             item={item}
-                            accessToken={accessToken}
+                           
                         />
                     </div>
                 </div>

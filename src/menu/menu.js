@@ -1,7 +1,7 @@
-import Log from '../login/log'
-import Reg from '../reg/reg'
+import Log from '../Login/Log'
+import Reg from '../Reg/Reg'
 import { Routes, Route, Link } from 'react-router-dom'
-import './menu.css';
+import './Menu.css';
 
 const Menu = () => {
   return (

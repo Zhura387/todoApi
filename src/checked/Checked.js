@@ -1,11 +1,13 @@
 import React from 'react';
 
-const Checked = ({ item, accessToken }) => {
+const Checked = ({ item }) => {
+
+    const accessToken = localStorage.getItem('token')
 
     const check = (item) => {
-        pre(item)
+        patchCheck(item)
     }
-    const pre = async (item) => {
+    const patchCheck = async (item) => {
         const res = await fetch(`https://first-node-js-app-r.herokuapp.com/api/todos/${item.ID}/isCompleted`,
             {
                 method: 'PATCH',
@@ -15,8 +17,8 @@ const Checked = ({ item, accessToken }) => {
                 }
             }
         )
-        const r = await res.json()
-        console.log(r)
+        const dataCheck = await res.json()
+        console.log(dataCheck)
     }
 
     return (

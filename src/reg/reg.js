@@ -1,5 +1,5 @@
 import React from 'react';
-import './reg.css'
+import './Reg.css'
 const Reg = () => {
 
     const [name, setName] = React.useState('');

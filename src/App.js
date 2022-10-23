@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom'
-import Todo from './todo/Todo';
+import Todo from './Todo/Todo'
 import PrivateRoute from './HOC/PrivateRoute';
-import Menu from './menu/menu';
+import Menu from './Menu/Menu';
 
 function App() {
   return (

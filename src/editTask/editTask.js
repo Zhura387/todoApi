@@ -1,18 +1,21 @@
 import React from 'react';
-import './edit.css';
+import './Edit.css';
 
-const EditTask = ({ item, accessToken }) => {
+const EditTask = ({ item }) => {
     const [isEdit, setIsEdit] = React.useState(false)
     const [text, setText] = React.useState(item.title)
+    const accessToken = localStorage.getItem('token')
 
-
-    const toggle = (item) => {
+    const toggle = () => {
         if (isEdit) {
             //     handleEdit(item.id, text)
             setIsEdit(!isEdit)
         } else {
             setIsEdit(!isEdit)
         }
+    }
+
+    const change=()=>{
         save(item)
     }
 
@@ -33,11 +36,10 @@ const EditTask = ({ item, accessToken }) => {
         console.log(s)
     }
 
-
     return (
         <div className='task-place'>
             {isEdit ? (<input className='input-edit' onChange={(e) => setText(e.target.value)} value={text} />) : (<p className='title'>{item.title}</p>)}
-            <button onClick={() => toggle(item)}>{isEdit ? 'сохранить' : 'изменить'}</button>
+            <button onClick={() => toggle()}>{isEdit ? <button onClick={() => change(item)}>сохранить</button> : 'изменить'} </button>
         </div>
     )
 }

@@ -1,21 +1,19 @@
 import React from 'react';
-import GetTodo from '../getTodo/GetTodo';
+import GetTodo from '../GetTodo/GetTodo';
 import { Link } from 'react-router-dom'
-import './todo.css';
+import './Todo.css';
 
 const Todo = () => {
-
 
     const accessToken = localStorage.getItem('token')
     const [text, setText] = React.useState('');
 
-
     const hendleSubmit = (e) => {
         e.preventDefault();
-        post()
+        postText()
     }
 
-    const post = async () => {
+    const postText = async () => {
         const res = await fetch('https://first-node-js-app-r.herokuapp.com/api/todos',
             {
                 method: 'POST',
@@ -30,26 +28,8 @@ const Todo = () => {
         )
         const data = await res.json()
         console.log(data)
-
     }
 
-
-
-    const handleDelete = async (item) => {
-        const res = await fetch(`https://first-node-js-app-r.herokuapp.com/api/todos/${item.ID}`,
-            {
-                method: 'DELETE',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${accessToken}`,
-                },
-            }
-        )
-        const data = await res.json()
-        console.log(data)
-    }
-    // Export default React.memo(Task)
-    // const MyScotchyComponent = React.memo(function MyComponent(props) {
     return (
         <div>
             <div className='link'> <Link to="Menu" className='linkMenu'> Menu</Link></div>
@@ -60,11 +40,7 @@ const Todo = () => {
                         <button onClick={(e) => hendleSubmit(e)}>добавить</button>
                     </div>
                 </form>
-
-                <GetTodo
-                    accessToken={accessToken}
-                    handleDelete={handleDelete}
-                />
+                <GetTodo/>
             </div>
         </div>
     )
